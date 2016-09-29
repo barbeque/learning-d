@@ -1,4 +1,4 @@
-import std.stdio, std.functional;
+import std.stdio, std.algorithm;
 
 void main() {
   char[] buf = new char[3];
@@ -6,8 +6,8 @@ void main() {
   buf[1] = 'b';
   buf[2] = 'c';
   
-  // TODO: why can't i use map on char[]?
+  // map comes from std.algorithm
   buf
-    .map!(l => l + 1) // next character...
+    .map!(l => cast(char)(l + 1)) // next character...
     .each!writeln; // pass to writeln
 }
